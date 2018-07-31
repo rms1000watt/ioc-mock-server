@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+  server:
+    container_name: server
+    command: serve
+    environment:
+      PORT: 7100
+      LOG_LEVEL: debug
+      DB_TYPE: mock
+    image: rms1000watt/ioc-mock-server:latest
+    ports:
+    - 7100:7100

@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  server:
+    container_name: server
+    command: serve
+    environment:
+      PORT: 7100
+      LOG_LEVEL: debug
+      DB_TYPE: redis
+      REDIS_ADDR: redis:6379
+    image: rms1000watt/ioc-mock-server:latest
+    restart: always
+    ports:
+    - 7100:7100
+
+  redis:
+    container_name: redis
+    image: redis:4.0.10-alpine3.8
+    ports:
+    - 6379:6379
